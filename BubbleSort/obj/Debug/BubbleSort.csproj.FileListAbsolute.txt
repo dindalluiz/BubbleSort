@@ -1,0 +1,8 @@
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\bin\Debug\BubbleSort.exe.config
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\bin\Debug\BubbleSort.exe
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\bin\Debug\BubbleSort.pdb
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\obj\Debug\BubbleSort.csprojResolveAssemblyReference.cache
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\obj\Debug\BubbleSort.Properties.Resources.resources
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\obj\Debug\BubbleSort.csproj.GenerateResource.Cache
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\obj\Debug\BubbleSort.exe
+C:\Users\Luiz.Torres\Desktop\BubbleSort\BubbleSort\BubbleSort\obj\Debug\BubbleSort.pdb
