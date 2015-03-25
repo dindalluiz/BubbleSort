@@ -28,12 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.drawButton = new System.Windows.Forms.Button();
+            this.SortButton = new System.Windows.Forms.Button();
+            this.numbersBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // drawButton
+            // 
+            this.drawButton.Location = new System.Drawing.Point(12, 12);
+            this.drawButton.Name = "drawButton";
+            this.drawButton.Size = new System.Drawing.Size(75, 23);
+            this.drawButton.TabIndex = 0;
+            this.drawButton.Text = "Draw";
+            this.drawButton.UseVisualStyleBackColor = true;
+            this.drawButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SortButton
+            // 
+            this.SortButton.Location = new System.Drawing.Point(12, 41);
+            this.SortButton.Name = "SortButton";
+            this.SortButton.Size = new System.Drawing.Size(75, 23);
+            this.SortButton.TabIndex = 1;
+            this.SortButton.Text = "Sort";
+            this.SortButton.UseVisualStyleBackColor = true;
+            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
+            // 
+            // numbersBox
+            // 
+            this.numbersBox.Location = new System.Drawing.Point(93, 15);
+            this.numbersBox.Name = "numbersBox";
+            this.numbersBox.Size = new System.Drawing.Size(138, 20);
+            this.numbersBox.TabIndex = 2;
+            this.numbersBox.Text = "10";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(238, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "AddArray(s)";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.numbersBox);
+            this.Controls.Add(this.SortButton);
+            this.Controls.Add(this.drawButton);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button drawButton;
+        private System.Windows.Forms.Button SortButton;
+        private System.Windows.Forms.TextBox numbersBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 
