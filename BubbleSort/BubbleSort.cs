@@ -8,9 +8,9 @@ namespace BubbleSort
 {
     class BubbleSort
     {
-        List<float> nums;
+        List<int> nums = new List<int>();
 
-        public BubbleSort(List<float> n)
+        public BubbleSort(List<int> n)
         {
             nums = n;
         }
@@ -23,7 +23,7 @@ namespace BubbleSort
                 {
                     if (nums[i] > nums[j])
                     {
-                        float aux = nums[i];
+                        int aux = nums[i];
                         nums[i] = nums[j];
                         nums[j] = aux;
                     }
@@ -37,7 +37,7 @@ namespace BubbleSort
                    
         }
 
-        public List<float> returnList()
+        public List<int> returnList()
         {
             return nums;
         }

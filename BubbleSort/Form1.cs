@@ -14,32 +14,53 @@ namespace BubbleSort
     public partial class Form1 : Form
     {
         BubbleSort b; 
-        List<float> a = new List<float>();
+        List<int> a = new List<int>();
         TimeSpan timespan;
-        List<List<float>> lists = new List<List<float>>();
+        int alo;
 
         public Form1()
         {
             InitializeComponent();
+            CenterToScreen();
+
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            Timer timer = new Timer();
+            timer.Interval = 1;
+            timer.Start();
+            timer.Tick += new EventHandler(this.Update);
+
+            Paint += new PaintEventHandler(this.DrawIt);
         }
 
-        private void DrawIt()
+        public void Update(object sender, EventArgs e)
         {
-            Graphics graphics = CreateGraphics();
-            Rectangle rectangle = new Rectangle(10, 580, 50, 100);
-            graphics.DrawRectangle(Pens.Red, rectangle);
+            Invalidate();
+            alo++;
+        }
+
+        private void DrawIt(object sender, PaintEventArgs p)
+        {
+            Rectangle rectangle = new Rectangle(10, 200, 600, 300);
+            p.Graphics.DrawRectangle(Pens.Red, rectangle);
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                Rectangle recAux = new Rectangle(10 + (i * 20), 500 - a[i], 20, a[i]);
+                p.Graphics.DrawRectangle(Pens.Blue, recAux);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            a = b.returnList();
+            if(a.Count > 0) a = b.returnList();
 
             for (int i = 0; i < a.Count; i++)
             {
                 Console.WriteLine(a[i]);
             }
-
-            DrawIt();
         }
 
         private void SortButton_Click(object sender, EventArgs e)
@@ -54,16 +75,11 @@ namespace BubbleSort
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string[] aux = numbersBox.Text.Split(",".ToCharArray());
-
             Random rand = new Random();
 
-            for (int i = 0; i < aux.Length; i++)
+            for (int j = 0; j < Convert.ToInt64(numbersBox.Text); j++)
             {
-                for (int j = 0; j < Convert.ToInt64(aux[i]); j++)
-                {
-                    a.Add(i + rand.Next(1,4) * 2 + rand.Next(1,5));
-                }
+                a.Add(j + rand.Next(300));
             }
 
             b = new BubbleSort(a);
