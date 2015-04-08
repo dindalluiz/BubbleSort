@@ -15,8 +15,8 @@ namespace BubbleSort
     {
         BubbleSort b; 
         List<int> a = new List<int>();
-        TimeSpan timespan;
-        int alo;
+
+        List<Static> statics = new List<Static>();
 
         public Form1()
         {
@@ -31,49 +31,41 @@ namespace BubbleSort
             timer.Interval = 1;
             timer.Start();
             timer.Tick += new EventHandler(this.Update);
-
-            Paint += new PaintEventHandler(this.DrawIt);
         }
 
         public void Update(object sender, EventArgs e)
         {
             Invalidate();
-            alo++;
         }
 
-        private void DrawIt(object sender, PaintEventArgs p)
+        private void Draw()
         {
-            Rectangle rectangle = new Rectangle(10, 200, 600, 300);
-            p.Graphics.DrawRectangle(Pens.Red, rectangle);
-
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < statics.Count;i++)
             {
-                Rectangle recAux = new Rectangle(10 + (i * 20), 500 - a[i], 20, a[i]);
-                p.Graphics.DrawRectangle(Pens.Blue, recAux);
+                chart1.Series[0].Points.AddXY(statics[i].elements, statics[i].timespan.TotalSeconds);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(a.Count > 0) a = b.returnList();
-
-            for (int i = 0; i < a.Count; i++)
-            {
-                Console.WriteLine(a[i]);
-            }
-        }
-
-        private void SortButton_Click(object sender, EventArgs e)
+        TimeSpan bubble()
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
+            b = new BubbleSort(a);
             b.Sort();
             watch.Stop();
-            timespan = watch.Elapsed;
-            Console.WriteLine(timespan.TotalSeconds);
+            return watch.Elapsed;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        void randomList()
+        {
+            Random rand = new Random();
+            for (int i = 0; i < a.Count;i++)
+            {
+                a[i] = i + rand.Next(300);
+            }
+        }
+
+        void addElements()
         {
             Random rand = new Random();
 
@@ -81,8 +73,25 @@ namespace BubbleSort
             {
                 a.Add(j + rand.Next(300));
             }
+        }
 
-            b = new BubbleSort(a);
+        private void generateGraf_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Convert.ToInt32(textBox1.Text);i++)
+            {
+                addElements();
+                statics.Add(new Static(bubble(), a.Count));
+                randomList();
+            }
+
+            Draw();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            statics.Clear();
+            a.Clear();
+            chart1.Series[0].Points.Clear();
         }
     }
 }
